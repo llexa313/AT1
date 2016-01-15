@@ -1,0 +1,12 @@
+{
+  "name": "task1",
+  "version": "0.0.1",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/llexa313/AT1.git"
+  },
+  "dependencies": {
+    "angular": "1.4.8",
+    "lodash": "4.0.0"
+  }
+}
