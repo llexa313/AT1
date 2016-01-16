@@ -6,7 +6,7 @@ Clone repository and run.
 ```
 npm install
 ```
- t will install angularjs and lodash library. 
+It will install angularjs and lodash library. 
 
 Structure
 ---
