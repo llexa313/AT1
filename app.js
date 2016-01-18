@@ -5,11 +5,8 @@
         .controller('FormCtrl', ['$scope', function($scope) {
 
             $scope.reset = function(form) {
-                if (form) {
-                    form.$setPristine();
-                }
-
-                $scope.user = {}
+                form && form.$setPristine();
+                //$scope.user = {}
             };
         }])
         .directive('fullName', function() {

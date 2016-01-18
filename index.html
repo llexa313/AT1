@@ -21,7 +21,7 @@
                 <input ng-model="user.name" name="name" full-name class="form-control" id="name">
                 <span ng-show="form.name.$dirty" ng-class="form.name.$invalid ? 'glyphicon-remove' : 'glyphicon-ok'" class="glyphicon form-control-feedback" aria-hidden="true"></span>
                 <div ng-show="form.name.$dirty && form.name.$error.fullName" class="help-block">
-                    Name must contain 2 words in english with first uppercase letters.
+                    Name must contain 2 words in english with first uppercase letters
                 </div>
             </div>
         </div>
@@ -43,7 +43,7 @@
                 <input ng-model="user.birthdate" name="birthdate" birthdate class="form-control" id="birthdate">
                 <span ng-show="form.birthdate.$dirty" ng-class="form.birthdate.$invalid ? 'glyphicon-remove' : 'glyphicon-ok'" class="glyphicon form-control-feedback" aria-hidden="true"></span>
                 <div ng-show="form.birthdate.$dirty && form.birthdate.$error.birthdate" class="help-block">
-                    Date format should be 'DD MMM YYYY'
+                    Date must be correct and inputs in format 'DD MMM YYYY'
                 </div>
             </div>
         </div>
