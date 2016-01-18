@@ -6,8 +6,10 @@ Clone repository and run.
 ```
 npm install
 ```
-It will install angularjs and lodash library. 
+It will install angular, bootstrap and lodash library. 
 
 Structure
 ---
-will be later
+`app.js` - file with application and validation directives 
+`index.html` - Just a simple html file
+`package.json` - Package information for npm

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Angular Training Task 1</title>
 
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css" />
 
     <script src="node_modules/lodash/lodash.js"></script>
     <script src="node_modules/angular/angular.js"></script>
@@ -13,22 +13,52 @@
 </head>
 <body ng-controller="FormCtrl">
 
-    <form novalidate name="form" class="form-horizontal">
-        <div class="form-group">
-            <label for="user_age" class="col-sm-2 control-label">Age</label>
+    <form name="form" class="form-horizontal">
+
+        <div class="form-group has-feedback" ng-class="form.name.$dirty && form.name.$invalid ? 'has-error' : 'has-success'">
+            <label for="name" class="col-sm-2 control-label">Name</label>
             <div class="col-sm-10">
-                <input ng-model="age" name="user_age" age class="form-control" id="user_age">
-                <div ng-show="form.user_age.$error.age">
-                    The value must be integer greater than 18 and less than 60.
+                <input ng-model="user.name" name="name" full-name class="form-control" id="name">
+                <span ng-show="form.name.$dirty" ng-class="form.name.$invalid ? 'glyphicon-remove' : 'glyphicon-ok'" class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                <div ng-show="form.name.$dirty && form.name.$error.fullName" class="help-block">
+                    Name must contain 2 words in english with first uppercase letters.
                 </div>
             </div>
         </div>
+
+        <div class="form-group has-feedback" ng-class="[ form.age.$dirty && form.age.$invalid ? 'has-error' : 'has-success' ]">
+            <label for="age" class="col-sm-2 control-label">Age</label>
+            <div class="col-sm-10">
+                <input ng-model="user.age" name="age" age class="form-control" id="age">
+                <span ng-show="form.age.$dirty" ng-class="form.age.$invalid ? 'glyphicon-remove' : 'glyphicon-ok'" class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                <div ng-show="form.age.$dirty && form.age.$error.age" class="help-block">
+                    Age must be integer between 18 and 60
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group has-feedback" ng-class="[ form.birthdate.$dirty && form.birthdate.$invalid ? 'has-error' : 'has-success' ]">
+            <label for="birthdate" class="col-sm-2 control-label">Birth date</label>
+            <div class="col-sm-10">
+                <input ng-model="user.birthdate" name="birthdate" birthdate class="form-control" id="birthdate">
+                <span ng-show="form.birthdate.$dirty" ng-class="form.birthdate.$invalid ? 'glyphicon-remove' : 'glyphicon-ok'" class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                <div ng-show="form.birthdate.$dirty && form.birthdate.$error.birthdate" class="help-block">
+                    Date format should be 'DD MMM YYYY'
+                </div>
+            </div>
+        </div>
+
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" class="btn btn-default">Submit</button>
-                <button type="reset" class="btn btn-default" ng-click="reset()">Reset</button>
+                <button type="submit" class="btn btn-primary" ng-disabled="!form.$dirty || form.$invalid">Submit</button>
+                <button type="reset" class="btn btn-default" ng-click="reset(form)">Reset</button>
             </div>
         </div>
     </form>
+
+    <code>
+        user = {{user | json}}
+    </code>
+
 </body>
 </html>
